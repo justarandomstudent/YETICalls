@@ -22,6 +22,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".BeginActivity" />
+        <activity
+            android:name=".FreeEventsActivity"
+            android:label="@string/title_activity_free_events"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AcceptEventActivity"
+            android:label="@string/title_activity_accept_event"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CallingActivity"
+            android:label="@string/title_activity_calling"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GradingActivity"
+            android:label="@string/title_activity_grading"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".HistoryActivity"
+            android:label="@string/title_activity_history"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateEventActivity"
+            android:label="@string/title_activity_create_event"></activity>
     </application>
 
 </manifest>
