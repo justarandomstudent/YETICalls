@@ -1,4 +1,4 @@
-package com.etiyeti.yeticalls;
+package com.etiyeti.yeticalls.call;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,12 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class FreeEventsActivity extends AppCompatActivity {
+import com.etiyeti.yeticalls.R;
+
+public class GradingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_free_events);
+        setContentView(R.layout.activity_grading);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -25,4 +27,5 @@ public class FreeEventsActivity extends AppCompatActivity {
             }
         });
     }
+
 }

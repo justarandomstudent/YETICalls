@@ -1,6 +1,5 @@
-package com.etiyeti.yeticalls;
+package com.etiyeti.yeticalls.events.list;
 
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.etiyeti.yeticalls.ItemEvent.OnListFragmentInteractionListener;
+import com.etiyeti.yeticalls.R;
+import com.etiyeti.yeticalls.events.list.ItemEvent.OnListFragmentInteractionListener;
 import com.etiyeti.yeticalls.dummy.DummyContent.DummyItem;
 
 import java.util.List;
@@ -77,14 +77,14 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             mView = view;
             mTime=(TextView) view.findViewById(R.id.timeEventItem);
             mButton=(Button) view.findViewById(R.id.buttonEventItem);
-            mText = (TextView) view.findViewById(R.id.timeEventItem);
+            mText = (TextView) view.findViewById(R.id.textEventItem);
             mImage=(ImageView) view.findViewById(R.id.imageEventItem);
            // mContentView = (TextView) view.findViewById(R.id.content);
         }
 
         @Override
         public String toString() {
-            return super.toString();// + " '" + mContentView.getText() + "'";
+            return super.toString()+"2";// + " '" + mContentView.getText() + "'";
         }
     }
     public static class myItem{

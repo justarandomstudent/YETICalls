@@ -1,5 +1,7 @@
-package com.etiyeti.yeticalls;
+package com.etiyeti.yeticalls.events.list;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -7,12 +9,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class CallingActivity extends AppCompatActivity {
+import com.etiyeti.yeticalls.R;
+
+public class FreeEventsActivity extends AppCompatActivity {
+    private static final int CONTENT_VIEW_ID = 10101010;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calling);
+        setContentView(R.layout.activity_free_events);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -24,6 +30,10 @@ public class CallingActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        if (savedInstanceState == null) {
+            Fragment newFragment = new ItemEvent();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.add(android.R.id.content, newFragment, "MyFragmentTag").commit();
+        }
     }
-
 }

@@ -1,8 +1,11 @@
-package com.etiyeti.yeticalls;
+package com.etiyeti.yeticalls.login;
 
+import com.etiyeti.yeticalls.events.list.FreeEventsActivity;
+import com.etiyeti.yeticalls.events.list.ItemEvent;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -29,6 +32,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.etiyeti.yeticalls.R;
+import com.etiyeti.yeticalls.events.list.ItemEvent;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +43,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class CreateEventActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -61,11 +67,19 @@ public class CreateEventActivity extends AppCompatActivity implements LoaderCall
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private static boolean begin=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_event);
+        if(begin) {
+            Intent intent = new Intent(this, BeginActivity.class);
+            startActivity(intent);
+            //setContentView(R.layout.activity_begin);
+            begin = false;
+        }
+      //  sleep(3000);
+        setContentView(R.layout.activity_login);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -83,6 +97,16 @@ public class CreateEventActivity extends AppCompatActivity implements LoaderCall
         });
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        Button mNextButton = (Button) findViewById(R.id.nextActivityButton);
+
+       /* mNextButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //setContentView(R.layout.event_item_list);
+                //setContentView(R.layout.activity_free_events);
+            }
+        });*/
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,6 +116,11 @@ public class CreateEventActivity extends AppCompatActivity implements LoaderCall
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+    }
+    public void changeToNext(View view){
+        Intent intentClick= new Intent(this,FreeEventsActivity.class);;
+        //intentClick.setClassName("login.LoginActivity", "library.error.ErrorDialog");= new Intent(this,.events.list.ItemEvent.class);
+        startActivity(intentClick);
     }
 
     private void populateAutoComplete() {
@@ -187,6 +216,9 @@ public class CreateEventActivity extends AppCompatActivity implements LoaderCall
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            Intent intentNext = new Intent(this,ItemEvent.class);
+            startActivity(intentNext);
+
         }
     }
 
@@ -273,7 +305,7 @@ public class CreateEventActivity extends AppCompatActivity implements LoaderCall
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(CreateEventActivity.this,
+                new ArrayAdapter<>(LoginActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
         mEmailView.setAdapter(adapter);

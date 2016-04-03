@@ -1,8 +1,9 @@
-package com.etiyeti.yeticalls;
+package com.etiyeti.yeticalls.events.list;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,8 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.etiyeti.yeticalls.dummy.DummyContent;
-import com.etiyeti.yeticalls.dummy.DummyContent.DummyItem;
+import com.etiyeti.yeticalls.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +58,7 @@ public class ItemEvent extends Fragment {
 
     @Override
     /***
-     * If Murad will succed with server it must be here
+     * If/when Murad succeds with the server it must be here
      * TODO: Add server's queries here
      */
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,7 +72,7 @@ public class ItemEvent extends Fragment {
         }
 
         // Set the adapter
-        if (view instanceof RecyclerView) {
+      //  if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             if (mColumnCount <= 1) {
@@ -81,7 +81,7 @@ public class ItemEvent extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             recyclerView.setAdapter(new MyItemRecyclerViewAdapter(myList, mListener));//(myContent.ITEMS, mListener));
-        }
+       // }
 
         return view;
     }

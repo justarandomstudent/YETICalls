@@ -9,5 +9,5 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context="com.etiyeti.yeticalls.ItemEvent"
+    tools:context=".events.list.ItemEvent"
     tools:listitem="@layout/event_item" />
