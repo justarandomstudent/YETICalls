@@ -55,6 +55,22 @@ public class ItemEvent extends Fragment {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
     }
+    public MyItemRecyclerViewAdapter.myItem getInfoFromDB(int i){
+        MyItemRecyclerViewAdapter.myItem mi=new MyItemRecyclerViewAdapter.myItem("6:"+(30+i),true,"MY "+i+" EVENT!");
+        return mi;
+
+    }
+
+    /***
+     * actually here Murad will fight his demons
+     * @return
+     * TODO: DB Connection
+     */
+    public MyItemRecyclerViewAdapter.myItem getInfoFromDB2(){
+        MyItemRecyclerViewAdapter.myItem mi=new MyItemRecyclerViewAdapter.myItem("6:"+(30),true,"MY "+0+" EVENT!");
+        return mi;
+
+    }
 
     @Override
     /***
@@ -67,7 +83,7 @@ public class ItemEvent extends Fragment {
         List<MyItemRecyclerViewAdapter.myItem> myList=new ArrayList<MyItemRecyclerViewAdapter.myItem>();
 
         for(int i=0;i<10;i++){
-            MyItemRecyclerViewAdapter.myItem mi=new MyItemRecyclerViewAdapter.myItem("6:"+(30+i),true,"MY "+i+" EVENT!");
+            MyItemRecyclerViewAdapter.myItem mi=new MyItemRecyclerViewAdapter.myItem(getInfoFromDB(i));
             myList.add(mi);
         }
 

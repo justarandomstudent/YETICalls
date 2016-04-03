@@ -1,5 +1,6 @@
 package com.etiyeti.yeticalls.login;
 
+import com.etiyeti.yeticalls.CallActivity;
 import com.etiyeti.yeticalls.events.list.FreeEventsActivity;
 import com.etiyeti.yeticalls.events.list.ItemEvent;
 import android.animation.Animator;
@@ -55,7 +56,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
+            "11111@:2","foo@example.com:hello", "bar@example.com:world"
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -118,6 +119,21 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mProgressView = findViewById(R.id.login_progress);
     }
     public void changeToNext(View view){
+        Intent intentClick= new Intent(this,FreeEventsActivity.class);;
+        //intentClick.setClassName("login.LoginActivity", "library.error.ErrorDialog");= new Intent(this,.events.list.ItemEvent.class);
+        startActivity(intentClick);
+    }
+    public void naStart(View view){
+        Intent intentClick= new Intent(this,BeginActivity.class);;
+        //intentClick.setClassName("login.LoginActivity", "library.error.ErrorDialog");= new Intent(this,.events.list.ItemEvent.class);
+        startActivity(intentClick);
+    }
+    public void makeACall(View view){
+        Intent intentClick= new Intent(this,CallActivity.class);;
+        //intentClick.setClassName("login.LoginActivity", "library.error.ErrorDialog");= new Intent(this,.events.list.ItemEvent.class);
+        startActivity(intentClick);
+    }
+    public void showAllThatWeAreNiceGuys(View view){
         Intent intentClick= new Intent(this,FreeEventsActivity.class);;
         //intentClick.setClassName("login.LoginActivity", "library.error.ErrorDialog");= new Intent(this,.events.list.ItemEvent.class);
         startActivity(intentClick);
@@ -216,8 +232,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
-            Intent intentNext = new Intent(this,ItemEvent.class);
-            startActivity(intentNext);
+            Intent intentClick= new Intent(this,FreeEventsActivity.class);;
+            //intentClick.setClassName("login.LoginActivity", "library.error.ErrorDialog");= new Intent(this,.events.list.ItemEvent.class);
+            startActivity(intentClick);
 
         }
     }

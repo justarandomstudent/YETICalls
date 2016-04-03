@@ -7,29 +7,33 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telecom.Call;
 import android.view.View;
+import com.zingaya.voximplant.VoxImplantCallback;
+import com.zingaya.voximplant.VoxImplantClient;
+import com.zingaya.voximplant.VoxImplantClient.LoginFailureReason;
+
+//import com.zingaya.voximplant.demo.CallActivity;
 
 import com.etiyeti.yeticalls.R;
 
 public class FreeEventsActivity extends AppCompatActivity {
-    private static final int CONTENT_VIEW_ID = 10101010;
+   // private static final int CONTENT_VIEW_ID = 10101010;
+    private VoxImplantClient client;
+    private Call activeCall = null;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_free_events);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+/*
+        client = VoxImplantClient.instance();
+        loginInput = (TextView)findViewById(R.id.loginInput);
+		passwordInput = (TextView)findViewById(R.id.passwordInput);
+		remoteNumberInput = (TextView)findViewById(R.id.callToInput);
+        client.setAndroidContext(getApplicationContext());
+        client.setCallback(this);*/
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         if (savedInstanceState == null) {
             Fragment newFragment = new ItemEvent();
             FragmentTransaction ft = getFragmentManager().beginTransaction();

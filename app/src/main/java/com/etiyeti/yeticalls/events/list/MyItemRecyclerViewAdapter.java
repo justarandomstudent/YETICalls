@@ -40,9 +40,9 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mTime.setText(mValues.get(position).time);
-        holder.mImage.setImageResource(R.drawable.yeti_internet);
+        holder.mImage.setImageResource(R.mipmap.ic_launcher);
         holder.mText.setText(mValues.get(position).text);
-        holder.mButton.setText("OK");
+        holder.mButton.setText("See more");
       //  holder.mIdView.setText(mValues.get(position).id);
       //  holder.mContentView.setText(mValues.get(position).content);
 
@@ -95,6 +95,11 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             this.time = time;
             this.isMale = isMale;
             this.text = text;
+        }
+        public myItem(myItem x) {
+            this.time = x.time;
+            this.isMale = x.isMale;
+            this.text = x.text;
         }
         @Override
         public String toString() {
